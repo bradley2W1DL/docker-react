@@ -1,0 +1,11 @@
+language: generic
+sudo: required
+
+services: 
+  - docker
+
+before_install:
+  - docker build -t bradley2w12dl/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true bradley2w1dl/docker-react npm run test
